@@ -1,10 +1,6 @@
-# NP Ringbuffer
-
-*np_ringbuffer* provides ring buffer operations using NumPy backend.
-
-## Example usage
-```python
 from np_ringbuffer import NumpyRingBuffer, TimedNumpyRingBuffer
+import random
+import time
 import numpy as np
 
 # construct from an existing numpy array
@@ -25,12 +21,6 @@ print(ringbuffer.values()) # [13]
 timed_ringbuffer = TimedNumpyRingBuffer(interval_ms=60_000, capacity=10)
 timed_ringbuffer.add(1)
 
-```
-
-### Practical usuage
-In finance, if you want to build an real-time trading volume accumulator in 1-minute bucket. You can do something like this (this example uses 1-second bar for simplicity sake):
-
-```python
 # volume 1-second bar example
 def generate_volume() -> float:
     return random.random() * 100
@@ -44,6 +34,3 @@ timed_ringbuffer = TimedNumpyRingBuffer(interval_ms=1000, capacity=10)
 for volume in get_volume():
     timed_ringbuffer.add(volume)
 print(timed_ringbuffer.values())
-```
-
-All of these examples are included in example.py
