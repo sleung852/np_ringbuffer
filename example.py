@@ -1,4 +1,4 @@
-from np_ringbuffer import NumpyRingBuffer, TimedNumpyRingBuffer
+from np_ringbuffer.ringbuffer import NumpyRingBuffer, TimedNumpyRingBuffer
 import random
 import time
 import numpy as np

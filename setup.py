@@ -1,7 +1,9 @@
 from setuptools import setup
 
-with open('requirements.txt') as f:
-    requirements = f.read().splitlines()
+def load_requirements():
+    with open('requirements.txt') as f:
+        requirements = f.read().splitlines()
+    return requirements
 
 setup(
     name='np_ringbuffer',
@@ -10,5 +12,5 @@ setup(
     author='See Leung',
     author_email='sleung852@gmail.com',
     packages=['np_ringbuffer'],
-    install_requires=requirements,
+    install_requires=load_requirements(),
 )

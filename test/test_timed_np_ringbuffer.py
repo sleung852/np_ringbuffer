@@ -2,7 +2,7 @@ from unittest import TestCase
 from unittest.mock import MagicMock, patch
 import numpy as np
 
-from ..np_ringbuffer.np_ringbuffer import NumpyRingBuffer, TimedNumpyRingBuffer
+from np_ringbuffer.ringbuffer import NumpyRingBuffer, TimedNumpyRingBuffer
 
 
 class TestTimedNumpyRingBuffer(TestCase):

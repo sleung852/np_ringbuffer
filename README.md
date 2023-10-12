@@ -4,7 +4,7 @@
 
 ## Example usage
 ```python
-from np_ringbuffer import NumpyRingBuffer, TimedNumpyRingBuffer
+from np_ringbuffer.ringbuffer import NumpyRingBuffer, TimedNumpyRingBuffer
 import numpy as np
 
 # construct from an existing numpy array
