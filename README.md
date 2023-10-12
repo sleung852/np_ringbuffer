@@ -68,4 +68,4 @@ print(timed_ringbuffer.values())
 All of these examples are included in example.py
 
 ## Test Coverage
-![Coverage Report](docs/coverage.png)
+![Coverage Report](https://github.com/sleung852/np_ringbuffer/blob/main/doc/coverage.png)
