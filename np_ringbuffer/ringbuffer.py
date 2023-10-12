@@ -19,7 +19,7 @@ class NumpyRingBuffer:
             self.size += 1
 
     def add_to_latest(self, value):
-        if self._idx == -1:
+        if self.size == 0:
             self.size = 1
             self._idx = 0
         self._buffer[self._idx] += value
@@ -55,6 +55,7 @@ class NumpyRingBuffer:
         instance = cls(len(array), array.dtype)
         instance._buffer = array
         instance.size = len(array)
+        instance._idx = len(array) - 1
         return instance
 
 

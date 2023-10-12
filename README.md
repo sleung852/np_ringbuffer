@@ -2,7 +2,15 @@
 
 *np_ringbuffer* provides ring buffer operations using NumPy backend.
 
-## Example usage
+## Installation
+
+```
+pip install np-ringbuffer
+```
+
+## Example
+
+### Quick Start
 ```python
 from np_ringbuffer.ringbuffer import NumpyRingBuffer, TimedNumpyRingBuffer
 import numpy as np
@@ -13,6 +21,7 @@ ringbuffer.append(3)
 print(ringbuffer.values())  # [2,3,3]
 ringbuffer.add_to_latest(10)
 print(ringbuffer.values()) # [2,3,13]
+# the ringbuffer also support 
 
 # construct an empty buffer with 5 capacity
 ringbuffer = NumpyRingBuffer(capacity=10)
@@ -27,7 +36,17 @@ timed_ringbuffer.add(1)
 
 ```
 
-### Practical usuage
+### Use it just like a list container/numpy array
+```python
+ringbuffer = NumpyRingBuffer.create_from_array(np.array([1,2,3,4]))
+
+print(ringbuffer[0]) # 1
+print(ringbuffer[-1]) # 4
+print(ringbuffer.mean()) # 2.5
+
+```
+
+## Practical Example
 In finance, if you want to build an real-time trading volume accumulator in 1-minute bucket. You can do something like this (this example uses 1-second bar for simplicity sake):
 
 ```python
@@ -47,3 +66,6 @@ print(timed_ringbuffer.values())
 ```
 
 All of these examples are included in example.py
+
+## Test Coverage
+![Coverage Report](docs/coverage.png)

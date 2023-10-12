@@ -42,7 +42,8 @@ class TestNumpyRingBuffer(TestCase):
     def test_values(self):
         array = np.array([1, 2, 3, 4])
         ring_buff = NumpyRingBuffer.create_from_array(array)
-        self.assertTrue((ring_buff.values() == array).all())
+        for i in range(1,5):
+            self.assertEqual(ring_buff.values()[i-1], i)
 
     def test_values_not_full(self):
         ring_buff = NumpyRingBuffer(4)
@@ -69,7 +70,7 @@ class TestNumpyRingBuffer(TestCase):
         array = np.array([1, 2, 3, 4])
         ring_buff = NumpyRingBuffer.create_from_array(array)
         ring_buff.add_to_latest(10)
-        self.assertEqual(ring_buff._buffer[3], 14)
+        self.assertEqual(ring_buff._buffer[-1], 14)
 
     def test_get_index_at_capacity(self):
         array = np.array([1, 2, 3, 4])
